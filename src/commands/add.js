@@ -109,6 +109,9 @@ module.exports = async (message) => {
   }
 
   await verifyMsg.edit(msg)
+  log.info({
+    channel: config.bot.onFeedAddChannel
+  }, 'FeedAddChannel')
 
   if (!config.bot.onFeedAddChannel) {
     return
