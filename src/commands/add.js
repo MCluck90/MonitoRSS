@@ -117,8 +117,11 @@ module.exports = async (message) => {
     return
   }
 
-  const notificationChannel = message.guild.channels.find(channel => channel.name === config.bot.onFeedAddChannel)
+  log.info({
+    channels: message.guild.channels
+  })
+  const notificationChannel = message.guild.channels.cache.find(channel => channel.name === config.bot.onFeedAddChannel)
   if (notificationChannel) {
-    notificationChannel.send(`New feed added to ${message.channel.toString()}`)
+    notificationChannel.send(`New feed added to ${message.channel.toString()}: ${linkList.join(' ')}`)
   }
 }

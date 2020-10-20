@@ -29,7 +29,7 @@ const botSchema = Joi.object({
   exitOnDatabaseDisconnect: Joi.bool().strict().default(false),
   exitOnExcessRateLimits: Joi.bool().strict().default(true),
   userAgent: Joi.string().strict().default('Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0'),
-  onFeedAddChannel: Joi.string().strict().default('')
+  onFeedAddChannel: Joi.string().strict().allow('').default('')
 })
 
 const databaseSchema = Joi.object({

@@ -90,7 +90,7 @@ exports.set = (override, skipValidation) => {
       ? botOverride.exitOnExcessRateLimits
       : bot.exitOnExcessRateLimits
   bot.userAgent = process.env.DRSS_BOT_USERAGENT || botOverride.userAgent || bot.userAgent
-  bot.onFeedAddChannel = process.env.DRSS_BOT_ONFEEDADDCHANNEL | botOverride.onFeedAddChannel || bot.onFeedAddChannel
+  bot.onFeedAddChannel = process.env.DRSS_BOT_ONFEEDADDCHANNEL || botOverride.onFeedAddChannel || bot.onFeedAddChannel
 
   // DATABASE
   if (!override.database) {
