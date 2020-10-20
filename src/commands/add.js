@@ -109,4 +109,13 @@ module.exports = async (message) => {
   }
 
   await verifyMsg.edit(msg)
+
+  if (!config.bot.onFeedAddChannel) {
+    return
+  }
+
+  const notificationChannel = message.guild.channels.find(channel => channel.name === config.bot.onFeedAddChannel)
+  if (notificationChannel) {
+    notificationChannel.send(`New feed added to ${message.channel.toString()}`)
+  }
 }
